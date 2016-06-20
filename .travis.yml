@@ -1,5 +1,9 @@
 language: go
 
+branches:
+  only:
+    - travis-test
+
 sudo: required
 services:
   - docker
