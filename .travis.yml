@@ -34,11 +34,14 @@ matrix:
     - go: tip
       env: SCENARIO=true
 
-go_import_path: github.com/osrg/gobgp
+go_import_path: github.com/fkakuma/gobgp
 
 script:
  - if [[ "$TRAVIS_GO_VERSION" == "1.5" ]]; then test -z "$(go fmt ./...)"; fi && bash test/scenario_test/ci-scripts/travis-build-script.sh $SCENARIO
 
 notifications:
- slack:
-  secure: KzuC9kytzS7wTlfj4MqSg8EpqXfJRMbo59dAVTA3w587achnVCS3vhUenWuhMCiWk7+6DVWwNpwzn2+A0S6RwMFMpKAU6Ij6K9sxEOgqBGuMN8w1//w+uJTryzsnebEIhInGt2kKfqz4Wx3QQqW5gVhI+8s+c5M0iXxFtN4soVk=
+  email:
+    - kakuma@valinux.co.jp
+
+  slack:
+    secure: KzuC9kytzS7wTlfj4MqSg8EpqXfJRMbo59dAVTA3w587achnVCS3vhUenWuhMCiWk7+6DVWwNpwzn2+A0S6RwMFMpKAU6Ij6K9sxEOgqBGuMN8w1//w+uJTryzsnebEIhInGt2kKfqz4Wx3QQqW5gVhI+8s+c5M0iXxFtN4soVk=
